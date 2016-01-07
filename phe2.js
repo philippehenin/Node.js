@@ -49,12 +49,13 @@ consumer.on('message', function (message) {
 
 // A supprimer quand pascql a corrigé
     jsonData = {
-        data: message.value,
+        key: message.value.key,
+        data: message.value
     }
 
     console.log(" test -> "+ message.value.key )
     // A mettre en place quand Pascal maitrisera son json...
-     bucket.insert(message.value.key, jsonData, function(error, result) {
+     bucket.insert(jsonData.key, jsonData, function(error, result) {
     // bucket.insert(uuid.v4(), jsonData, function(error, result) {
         if (error) {
           console.log('Failed to save to Couchbase', error);
