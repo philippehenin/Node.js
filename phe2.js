@@ -49,7 +49,7 @@ consumer.on('message', function (message) {
 
 
     jsonData = {
-        id: message.value.key,
+        id: uuid.v4(),
         data: message.value,
     }
 
