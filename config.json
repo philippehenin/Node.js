@@ -1,0 +1,10 @@
+{
+    "couchbase": {
+        "server": "localhost:8091",
+        "bucket": "default"
+    },
+    "kafka": {
+        "server": "localhost:2181",
+        "topic": "topic1"
+    }
+}
