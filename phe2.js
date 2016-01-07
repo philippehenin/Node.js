@@ -54,15 +54,11 @@ consumer.on('message', function (message) {
     }
 
 
-    JSON.parse(message.value, function(error,result){
-        if (error) {
-          console.log('Failed to parse', error);
-        } else {
-          var key = result;
-          console.log(" test value.key -> "+ message.value.key )
-        }
-    })
-    console.log(" test value -> "+ message.value )
+    buffer = JSON.parse(message.value)
+    
+    console.log(" test buffer -> "+ buffer )
+
+    console.log(" test buffer.key  -> "+ buffer.key )
     
     // A mettre en place quand Pascal maitrisera son json...
      bucket.insert(jsonData.key, jsonData, function(error, result) {
