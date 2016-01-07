@@ -5,6 +5,6 @@
     },
     "kafka": {
         "server": "localhost:2181",
-        "topic": "topic1"
+        "topic": "TOP_LDAP_AUDIT"
     }
 }
