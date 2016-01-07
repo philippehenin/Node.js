@@ -1,6 +1,6 @@
 {
     "couchbase": {
-        "server": "localhost:8091",
+        "server": "10.55.224.133:8091",
         "bucket": "default"
     },
     "kafka": {
