@@ -13,12 +13,12 @@ var consumer = new HighLevelConsumer(client, topics, options);
 var bucket = (new couchbase.Cluster(config.couchbase.server)).openBucket(config.couchbase.bucket);
 
 console.log("*************************************************************************************")
-console.log("Source : kafka")
-console.log("Source : server :" + config.kafka.server)
-console.log("Source : topic  :" + config.kafka.topic)
-console.log("Cible  : couchbase")
-console.log("Cible  : server :" + config.couchbase.server)
-console.log("Cible  : bucket :" + config.couchbase.server)
+console.log("* Source : kafka")
+console.log("* Source : server :" + config.kafka.server)
+console.log("* Source : topic  :" + config.kafka.topic)
+console.log("* Cible  : couchbase")
+console.log("* Cible  : server :" + config.couchbase.server)
+console.log("* Cible  : bucket :" + config.couchbase.bucket)
 console.log("*************************************************************************************")
 console.log("* LISTENING                                                                         *")
 console.log("*************************************************************************************")
