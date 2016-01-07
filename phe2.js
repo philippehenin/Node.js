@@ -49,7 +49,7 @@ consumer.on('message', function (message) {
 
 
     jsonData = {
-        id: uuid.v4(),
+        id: message.value.key,
         data: message.value,
     }
 
@@ -57,10 +57,8 @@ consumer.on('message', function (message) {
     bucket.insert(jsonData.id, jsonData, function(error, result) {
         if (error) {
           console.log('Failed to save to Couchbase', error);
-          return false;
         } else {
           console.log('Saved to Couchbase!');
-          return true;
         }
     });
 
