@@ -54,14 +54,14 @@ consumer.on('message', function (message) {
     }
 
 
-    buffer = JSON.parse(message.value)
+    var buffer = JSON.parse(message.value)
     
     console.log(" test buffer -> "+ buffer )
 
     console.log(" test buffer.key  -> "+ buffer.key )
     
     // A mettre en place quand Pascal maitrisera son json...
-     bucket.insert(jsonData.key, jsonData, function(error, result) {
+     bucket.insert(buffer.key, buffer, function(error, result) {
     // bucket.insert(uuid.v4(), jsonData, function(error, result) {
         if (error) {
           console.log('Failed to save to Couchbase', error);
