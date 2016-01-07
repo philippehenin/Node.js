@@ -1,17 +1,27 @@
 'use strict';
-
+// utiliser le fichier de config ./config.json
 var kafka = require('..');
 var couchbase = require("couchbase");
 var config = require("./config");
-var argv = require('optimist').argv;
 var HighLevelConsumer = kafka.HighLevelConsumer;
 var Client = kafka.Client;
-var topic = argv.topic || config.kafka.topic || 'topic1';
+var topic = config.kafka.topic || 'topic1';
 var client = new Client(config.kafka.server);
 var topics = [ { topic: topic }];
 var options = { autoCommit: true, fetchMaxWaitMs: 1000, fetchMaxBytes: 1024*1024 };
 var consumer = new HighLevelConsumer(client, topics, options);
 var bucket = (new couchbase.Cluster(config.couchbase.server)).openBucket(config.couchbase.bucket);
+
+console.log("*************************************************************************************")
+console.log("Source : kafka")
+console.log("Source : server :" + config.kafka.server)
+console.log("Source : topic  :" + config.kafka.topic)
+console.log("Cible  : couchbase")
+console.log("Cible  : server :" + config.couchbase.server)
+console.log("Cible  : bucket :" + config.couchbase.server)
+console.log("*************************************************************************************")
+console.log("* LISTENING                                                                         *")
+console.log("*************************************************************************************")
 
 consumer.on('message', function (message) {
     var buffer = JSON.parse(message.value)
