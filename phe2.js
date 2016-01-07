@@ -54,9 +54,9 @@ consumer.on('message', function (message) {
     }
 
 
-    JSON.parse(message.value.key, function(error,result){
+    JSON.parse(message.value, function(error,result){
         if (error) {
-          console.log('Failed to save to Couchbase', error);
+          console.log('Failed to parse', error);
         } else {
           message.value.key = result.key;
           console.log(" test value.key -> "+ message.value.key )
