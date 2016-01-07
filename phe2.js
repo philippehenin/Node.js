@@ -58,7 +58,7 @@ consumer.on('message', function (message) {
         if (error) {
           console.log('Failed to parse', error);
         } else {
-          message.value.key = result.key;
+          var key = result.key;
           console.log(" test value.key -> "+ message.value.key )
         }
     })
