@@ -53,7 +53,8 @@ consumer.on('message', function (message) {
         data: message.value
     }
 
-    console.log(" test -> "+ message.value.key )
+    console.log(" test value -> "+ message.value )
+    console.log(" test value.key -> "+ message.value.key )
     // A mettre en place quand Pascal maitrisera son json...
      bucket.insert(jsonData.key, jsonData, function(error, result) {
     // bucket.insert(uuid.v4(), jsonData, function(error, result) {
