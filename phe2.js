@@ -1,5 +1,9 @@
 'use strict';
 // utiliser le fichier de config ./config.json
+// utilise kafka-node
+// git clone https://github.com/SOHU-Co/kafka-node.git
+// mettre le js dans kafka-node/example
+// todo -> fichier pour les dependences
 var kafka = require('..');
 var couchbase = require("couchbase");
 var config = require("./config");
