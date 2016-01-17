@@ -4,7 +4,7 @@
 // git clone https://github.com/SOHU-Co/kafka-node.git
 // mettre le js dans kafka-node/example
 // todo -> fichier pour les dependences
-var kafka = require('..');
+var kafka = require('kafka-node');
 var couchbase = require("couchbase");
 var config = require("./config");
 var HighLevelConsumer = kafka.HighLevelConsumer;
@@ -17,10 +17,10 @@ var consumer = new HighLevelConsumer(client, topics, options);
 var bucket = (new couchbase.Cluster(config.couchbase.server)).openBucket(config.couchbase.bucket);
 
 console.log("*************************************************************************************")
-console.log("* Source : kafka")
+console.log("* Source : kafka                                                                     ")
 console.log("* Source : server :" + config.kafka.server)
 console.log("* Source : topic  :" + config.kafka.topic)
-console.log("* Cible  : couchbase")
+console.log("* Cible  : couchbase                                                                 ")
 console.log("* Cible  : server :" + config.couchbase.server)
 console.log("* Cible  : bucket :" + config.couchbase.bucket)
 console.log("*************************************************************************************")
