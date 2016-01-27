@@ -12,14 +12,14 @@ var Client = kafka.Client;
 var client = new Client(config.kafka.server);
 var topics = [ { topic: config.kafka.topic }];
 var options = {
-    groupId: 'group1',
-    autoCommit: true,
-    autoCommitMsgCount: 100,
-    autoCommitIntervalMs: 5000,
-    fetchMaxWaitMs: 100,
-    fetchMinBytes: 1,
-    fetchMaxBytes: 1024 * 10
+    groupId: 'group1'
 };
+//    autoCommit: true,
+//    autoCommitMsgCount: 100,
+//    autoCommitIntervalMs: 5000,
+//    fetchMaxWaitMs: 100,
+//    fetchMinBytes: 1,
+//    fetchMaxBytes: 1024 * 10
 //    fromOffset: false,
 //    fromBeginning: false
 var consumer = new HighLevelConsumer(client, topics, options);
