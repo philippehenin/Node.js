@@ -9,10 +9,18 @@ var couchbase = require("couchbase");
 var config = require("./config");
 var HighLevelConsumer = kafka.HighLevelConsumer;
 var Client = kafka.Client;
-var topic = config.kafka.topic;
 var client = new Client(config.kafka.server);
-var topics = [ { topic: topic }];
-var options = { autoCommit: true, fetchMaxWaitMs: 1000, fetchMaxBytes: 1024*1024 };
+var topics = [ { topic: config.kafka.topic }];
+var options = {
+    groupId: 'group1',
+    autoCommit: true,
+    autoCommitMsgCount: 100,
+    autoCommitIntervalMs: 5000,
+    fetchMaxWaitMs: 100,
+    fetchMinBytes: 1,
+    fetchMaxBytes: 1024 * 10,
+    fromOffset: false,
+    fromBeginning: false};
 var consumer = new HighLevelConsumer(client, topics, options);
 var bucket = (new couchbase.Cluster(config.couchbase.server)).openBucket(config.couchbase.bucket);
 
