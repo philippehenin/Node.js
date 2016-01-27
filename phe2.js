@@ -18,9 +18,10 @@ var options = {
     autoCommitIntervalMs: 5000,
     fetchMaxWaitMs: 100,
     fetchMinBytes: 1,
-    fetchMaxBytes: 1024 * 10,
-    fromOffset: false,
-    fromBeginning: false};
+    fetchMaxBytes: 1024 * 10
+};
+//    fromOffset: false,
+//    fromBeginning: false
 var consumer = new HighLevelConsumer(client, topics, options);
 var bucket = (new couchbase.Cluster(config.couchbase.server)).openBucket(config.couchbase.bucket);
 
